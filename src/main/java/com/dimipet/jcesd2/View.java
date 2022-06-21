@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.Vector;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -22,6 +24,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.poi.util.SystemOutLogger;
 
 public class View extends JPanel implements DocumentListener {
 
@@ -57,8 +60,10 @@ public class View extends JPanel implements DocumentListener {
 	private List<JTextField> textFieldGroup;
 	private List<ButtonGroupExtended> btnGrpExtList;
 
-	public View() {
+	ExcelController xlc;
 
+	public View() {
+		xlc = new ExcelController();
 		init();
 
 	}
@@ -579,7 +584,6 @@ public class View extends JPanel implements DocumentListener {
 		txtFldTestCode.setEnabled(false);
 		txtFldSum.setEnabled(false);
 
-
 		lblAge.setBounds(10, 65, 25, 30);
 		lblAge.setText("Age");
 		for (int i = 14; i <= 99; i++) {
@@ -602,13 +606,12 @@ public class View extends JPanel implements DocumentListener {
 		cmbEdu.addItem("Γυμνάσιο");
 		cmbEdu.addItem("Δημοτικό");
 		cmbEdu.setBounds(280, 65, 90, 30);
-		
+
 		btnCancel.setBounds(380, 65, 80, 30);
 		btnCancel.setText("Reset");
 		btnSubmit.setBounds(455, 65, 80, 30);
 		btnSubmit.setText("Submit");
 
-		
 		txtFldSum.setFont(new Font("Monospaced", Font.PLAIN, 11));
 		txtFldTestCode.setFont(new Font("Monospaced", Font.PLAIN, 11));
 		lblAge.setFont(new Font("Monospaced", Font.PLAIN, 11));
@@ -641,8 +644,6 @@ public class View extends JPanel implements DocumentListener {
 		add(cmbEdu);
 		add(btnCancel);
 		add(btnSubmit);
-		
-		
 
 		int x, y, lblW, lblH, chBoxW, chBoxH, txtW, txtH;
 		x = 10;
@@ -981,10 +982,16 @@ public class View extends JPanel implements DocumentListener {
 				System.exit(0);
 			}
 		});
-		
+
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				init();
+			}
+		});
+
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				calcFinalValueAndWriteToFile();
 			}
 		});
 
@@ -1186,10 +1193,8 @@ public class View extends JPanel implements DocumentListener {
 				+ (txtFld16.getText().equals("") ? "" : (txtFld16.getText()))
 				+ (txtFld17.getText().equals("") ? "" : (txtFld17.getText()))
 				+ (txtFld18.getText().equals("") ? "" : (txtFld18.getText()))
-				+ (txtFld19.getText().equals("") ? "" : (txtFld19.getText()))
-				+ cmbAge.getSelectedItem().toString()
-				+ cmbSex.getSelectedItem().toString()
-				+ cmbEdu.getSelectedItem().toString();
+				+ (txtFld19.getText().equals("") ? "" : (txtFld19.getText())) + cmbAge.getSelectedItem().toString()
+				+ cmbSex.getSelectedItem().toString() + cmbEdu.getSelectedItem().toString();
 		String totalScore = (txtFldSum.getText().equals("") ? "" : (txtFldSum.getText()));
 		String sha256hex = DigestUtils.sha256Hex(timeStamp + answers + totalScore);
 		return sha256hex;
@@ -1211,6 +1216,24 @@ public class View extends JPanel implements DocumentListener {
 	public void changedUpdate(DocumentEvent e) {
 		calculate();
 
+	}
+
+	private void calcFinalValueAndWriteToFile() {
+		xlc.createNewRow();
+		for (ButtonGroupExtended bge : btnGrpExtList) {
+			for (int i = 0; i <= 3; i++) {
+				if (bge.getButtons().get(i).isSelected()) {
+					xlc.createAndWriteToCell(bge.getButtons().get(i).getActionCommand());
+				}
+			}
+		}
+		xlc.createAndWriteToCell(txtFldSum.getText());
+		xlc.createAndWriteToCell(txtFldTestCode.getText());
+		xlc.createAndWriteToCell(cmbAge.getSelectedItem().toString());
+		xlc.createAndWriteToCell(cmbSex.getSelectedItem().toString());
+		xlc.createAndWriteToCell(cmbEdu.getSelectedItem().toString());
+		xlc.writeToFile();
+		init();
 	}
 
 }
