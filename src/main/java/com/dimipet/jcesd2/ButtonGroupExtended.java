@@ -7,7 +7,6 @@ import java.util.Vector;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
-import javax.swing.JCheckBox;
 import javax.swing.event.EventListenerList;
 
 @SuppressWarnings("serial")
