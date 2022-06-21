@@ -54,10 +54,12 @@ public class View extends JPanel implements DocumentListener {
 			txtFld10, txtFld11, txtFld12, txtFld13, txtFld14, txtFld15, txtFld16, txtFld17, txtFld18, txtFld19,
 			txtFldTestCode, txtFldSum;
 
-	private List<JTextField> textFieldGroup;
+	private List<JCheckBox> chkBxList;
+	private List<JTextField> txtFldList;
+	private List<JLabel> lblList;
 	private List<ButtonGroupExtended> btnGrpExtList;
 
-	ExcelController xlc;
+	private ExcelController xlc;
 
 	public View() {
 		xlc = new ExcelController();
@@ -105,135 +107,123 @@ public class View extends JPanel implements DocumentListener {
 		btnSubmit = new JButton();
 		btnCancel = new JButton();
 
-		lbl0 = new javax.swing.JLabel();
-		lbl1 = new javax.swing.JLabel();
-		lbl2 = new javax.swing.JLabel();
-		lbl3 = new javax.swing.JLabel();
-		lbl4 = new javax.swing.JLabel();
-		lbl5 = new javax.swing.JLabel();
-		lbl6 = new javax.swing.JLabel();
-		lbl7 = new javax.swing.JLabel();
-		lbl8 = new javax.swing.JLabel();
-		lbl9 = new javax.swing.JLabel();
-		lbl10 = new javax.swing.JLabel();
-		lbl11 = new javax.swing.JLabel();
-		lbl12 = new javax.swing.JLabel();
-		lbl13 = new javax.swing.JLabel();
-		lbl14 = new javax.swing.JLabel();
-		lbl15 = new javax.swing.JLabel();
-		lbl16 = new javax.swing.JLabel();
-		lbl17 = new javax.swing.JLabel();
-		lbl18 = new javax.swing.JLabel();
-		lbl19 = new javax.swing.JLabel();
-		lblAge = new javax.swing.JLabel();
-		lblSex = new javax.swing.JLabel();
-		lblEdu = new javax.swing.JLabel();
-		lblA = new javax.swing.JLabel();
-		lblB = new javax.swing.JLabel();
-		lblC = new javax.swing.JLabel();
-		lblD = new javax.swing.JLabel();
+		lbl0 = new JLabel();
+		lbl1 = new JLabel();
+		lbl2 = new JLabel();
+		lbl3 = new JLabel();
+		lbl4 = new JLabel();
+		lbl5 = new JLabel();
+		lbl6 = new JLabel();
+		lbl7 = new JLabel();
+		lbl8 = new JLabel();
+		lbl9 = new JLabel();
+		lbl10 = new JLabel();
+		lbl11 = new JLabel();
+		lbl12 = new JLabel();
+		lbl13 = new JLabel();
+		lbl14 = new JLabel();
+		lbl15 = new JLabel();
+		lbl16 = new JLabel();
+		lbl17 = new JLabel();
+		lbl18 = new JLabel();
+		lbl19 = new JLabel();
+		lblAge = new JLabel();
+		lblSex = new JLabel();
+		lblEdu = new JLabel();
+		lblA = new JLabel();
+		lblB = new JLabel();
+		lblC = new JLabel();
+		lblD = new JLabel();
 
-		btnGrp0 = new ButtonGroupExtended();
-		btnGrp1 = new ButtonGroupExtended();
-		btnGrp2 = new ButtonGroupExtended();
-		btnGrp3 = new ButtonGroupExtended();
-		btnGrp4 = new ButtonGroupExtended();
-		btnGrp5 = new ButtonGroupExtended();
-		btnGrp6 = new ButtonGroupExtended();
-		btnGrp7 = new ButtonGroupExtended();
-		btnGrp8 = new ButtonGroupExtended();
-		btnGrp9 = new ButtonGroupExtended();
-		btnGrp10 = new ButtonGroupExtended();
-		btnGrp11 = new ButtonGroupExtended();
-		btnGrp12 = new ButtonGroupExtended();
-		btnGrp13 = new ButtonGroupExtended();
-		btnGrp14 = new ButtonGroupExtended();
-		btnGrp15 = new ButtonGroupExtended();
-		btnGrp16 = new ButtonGroupExtended();
-		btnGrp17 = new ButtonGroupExtended();
-		btnGrp18 = new ButtonGroupExtended();
-		btnGrp19 = new ButtonGroupExtended();
+		lblList = new ArrayList<JLabel>(
+				Arrays.asList(lbl0, lbl1, lbl2, lbl3, lbl4, lbl5, lbl6, lbl7, lbl8, lbl9, lbl10, lbl11, lbl12, lbl13,
+						lbl14, lbl15, lbl16, lbl17, lbl18, lbl19, lblAge, lblSex, lblEdu, lblA, lblB, lblC, lblD));
 
-		chkBx0_0 = new javax.swing.JCheckBox();
-		chkBx0_1 = new javax.swing.JCheckBox();
-		chkBx0_2 = new javax.swing.JCheckBox();
-		chkBx0_3 = new javax.swing.JCheckBox();
-		chkBx1_0 = new javax.swing.JCheckBox();
-		chkBx1_1 = new javax.swing.JCheckBox();
-		chkBx1_2 = new javax.swing.JCheckBox();
-		chkBx1_3 = new javax.swing.JCheckBox();
-		chkBx2_0 = new javax.swing.JCheckBox();
-		chkBx2_1 = new javax.swing.JCheckBox();
-		chkBx2_2 = new javax.swing.JCheckBox();
-		chkBx2_3 = new javax.swing.JCheckBox();
-		chkBx3_0 = new javax.swing.JCheckBox();
-		chkBx3_1 = new javax.swing.JCheckBox();
-		chkBx3_2 = new javax.swing.JCheckBox();
-		chkBx3_3 = new javax.swing.JCheckBox();
-		chkBx4_0 = new javax.swing.JCheckBox();
-		chkBx4_1 = new javax.swing.JCheckBox();
-		chkBx4_2 = new javax.swing.JCheckBox();
-		chkBx4_3 = new javax.swing.JCheckBox();
-		chkBx5_0 = new javax.swing.JCheckBox();
-		chkBx5_1 = new javax.swing.JCheckBox();
-		chkBx5_2 = new javax.swing.JCheckBox();
-		chkBx5_3 = new javax.swing.JCheckBox();
-		chkBx6_0 = new javax.swing.JCheckBox();
-		chkBx6_1 = new javax.swing.JCheckBox();
-		chkBx6_2 = new javax.swing.JCheckBox();
-		chkBx6_3 = new javax.swing.JCheckBox();
-		chkBx7_0 = new javax.swing.JCheckBox();
-		chkBx7_1 = new javax.swing.JCheckBox();
-		chkBx7_2 = new javax.swing.JCheckBox();
-		chkBx7_3 = new javax.swing.JCheckBox();
-		chkBx8_0 = new javax.swing.JCheckBox();
-		chkBx8_1 = new javax.swing.JCheckBox();
-		chkBx8_2 = new javax.swing.JCheckBox();
-		chkBx8_3 = new javax.swing.JCheckBox();
-		chkBx9_0 = new javax.swing.JCheckBox();
-		chkBx9_1 = new javax.swing.JCheckBox();
-		chkBx9_2 = new javax.swing.JCheckBox();
-		chkBx9_3 = new javax.swing.JCheckBox();
-		chkBx10_0 = new javax.swing.JCheckBox();
-		chkBx10_1 = new javax.swing.JCheckBox();
-		chkBx10_2 = new javax.swing.JCheckBox();
-		chkBx10_3 = new javax.swing.JCheckBox();
-		chkBx11_0 = new javax.swing.JCheckBox();
-		chkBx11_1 = new javax.swing.JCheckBox();
-		chkBx11_2 = new javax.swing.JCheckBox();
-		chkBx11_3 = new javax.swing.JCheckBox();
-		chkBx12_0 = new javax.swing.JCheckBox();
-		chkBx12_1 = new javax.swing.JCheckBox();
-		chkBx12_2 = new javax.swing.JCheckBox();
-		chkBx12_3 = new javax.swing.JCheckBox();
-		chkBx13_0 = new javax.swing.JCheckBox();
-		chkBx13_1 = new javax.swing.JCheckBox();
-		chkBx13_2 = new javax.swing.JCheckBox();
-		chkBx13_3 = new javax.swing.JCheckBox();
-		chkBx14_0 = new javax.swing.JCheckBox();
-		chkBx14_1 = new javax.swing.JCheckBox();
-		chkBx14_2 = new javax.swing.JCheckBox();
-		chkBx14_3 = new javax.swing.JCheckBox();
-		chkBx15_0 = new javax.swing.JCheckBox();
-		chkBx15_1 = new javax.swing.JCheckBox();
-		chkBx15_2 = new javax.swing.JCheckBox();
-		chkBx15_3 = new javax.swing.JCheckBox();
-		chkBx16_0 = new javax.swing.JCheckBox();
-		chkBx16_1 = new javax.swing.JCheckBox();
-		chkBx16_2 = new javax.swing.JCheckBox();
-		chkBx16_3 = new javax.swing.JCheckBox();
-		chkBx17_0 = new javax.swing.JCheckBox();
-		chkBx17_1 = new javax.swing.JCheckBox();
-		chkBx17_2 = new javax.swing.JCheckBox();
-		chkBx17_3 = new javax.swing.JCheckBox();
-		chkBx18_0 = new javax.swing.JCheckBox();
-		chkBx18_1 = new javax.swing.JCheckBox();
-		chkBx18_2 = new javax.swing.JCheckBox();
-		chkBx18_3 = new javax.swing.JCheckBox();
-		chkBx19_0 = new javax.swing.JCheckBox();
-		chkBx19_1 = new javax.swing.JCheckBox();
-		chkBx19_2 = new javax.swing.JCheckBox();
-		chkBx19_3 = new javax.swing.JCheckBox();
+		lblList.stream().forEach((l) -> {
+			// TODO add app.properties
+			l.setFont(new Font("Monospaced", Font.PLAIN, 11));
+		});
+
+		chkBx0_0 = new JCheckBox();
+		chkBx0_1 = new JCheckBox();
+		chkBx0_2 = new JCheckBox();
+		chkBx0_3 = new JCheckBox();
+		chkBx1_0 = new JCheckBox();
+		chkBx1_1 = new JCheckBox();
+		chkBx1_2 = new JCheckBox();
+		chkBx1_3 = new JCheckBox();
+		chkBx2_0 = new JCheckBox();
+		chkBx2_1 = new JCheckBox();
+		chkBx2_2 = new JCheckBox();
+		chkBx2_3 = new JCheckBox();
+		chkBx3_0 = new JCheckBox();
+		chkBx3_1 = new JCheckBox();
+		chkBx3_2 = new JCheckBox();
+		chkBx3_3 = new JCheckBox();
+		chkBx4_0 = new JCheckBox();
+		chkBx4_1 = new JCheckBox();
+		chkBx4_2 = new JCheckBox();
+		chkBx4_3 = new JCheckBox();
+		chkBx5_0 = new JCheckBox();
+		chkBx5_1 = new JCheckBox();
+		chkBx5_2 = new JCheckBox();
+		chkBx5_3 = new JCheckBox();
+		chkBx6_0 = new JCheckBox();
+		chkBx6_1 = new JCheckBox();
+		chkBx6_2 = new JCheckBox();
+		chkBx6_3 = new JCheckBox();
+		chkBx7_0 = new JCheckBox();
+		chkBx7_1 = new JCheckBox();
+		chkBx7_2 = new JCheckBox();
+		chkBx7_3 = new JCheckBox();
+		chkBx8_0 = new JCheckBox();
+		chkBx8_1 = new JCheckBox();
+		chkBx8_2 = new JCheckBox();
+		chkBx8_3 = new JCheckBox();
+		chkBx9_0 = new JCheckBox();
+		chkBx9_1 = new JCheckBox();
+		chkBx9_2 = new JCheckBox();
+		chkBx9_3 = new JCheckBox();
+		chkBx10_0 = new JCheckBox();
+		chkBx10_1 = new JCheckBox();
+		chkBx10_2 = new JCheckBox();
+		chkBx10_3 = new JCheckBox();
+		chkBx11_0 = new JCheckBox();
+		chkBx11_1 = new JCheckBox();
+		chkBx11_2 = new JCheckBox();
+		chkBx11_3 = new JCheckBox();
+		chkBx12_0 = new JCheckBox();
+		chkBx12_1 = new JCheckBox();
+		chkBx12_2 = new JCheckBox();
+		chkBx12_3 = new JCheckBox();
+		chkBx13_0 = new JCheckBox();
+		chkBx13_1 = new JCheckBox();
+		chkBx13_2 = new JCheckBox();
+		chkBx13_3 = new JCheckBox();
+		chkBx14_0 = new JCheckBox();
+		chkBx14_1 = new JCheckBox();
+		chkBx14_2 = new JCheckBox();
+		chkBx14_3 = new JCheckBox();
+		chkBx15_0 = new JCheckBox();
+		chkBx15_1 = new JCheckBox();
+		chkBx15_2 = new JCheckBox();
+		chkBx15_3 = new JCheckBox();
+		chkBx16_0 = new JCheckBox();
+		chkBx16_1 = new JCheckBox();
+		chkBx16_2 = new JCheckBox();
+		chkBx16_3 = new JCheckBox();
+		chkBx17_0 = new JCheckBox();
+		chkBx17_1 = new JCheckBox();
+		chkBx17_2 = new JCheckBox();
+		chkBx17_3 = new JCheckBox();
+		chkBx18_0 = new JCheckBox();
+		chkBx18_1 = new JCheckBox();
+		chkBx18_2 = new JCheckBox();
+		chkBx18_3 = new JCheckBox();
+		chkBx19_0 = new JCheckBox();
+		chkBx19_1 = new JCheckBox();
+		chkBx19_2 = new JCheckBox();
+		chkBx19_3 = new JCheckBox();
 
 		chkBx0_0.setActionCommand("0");
 		chkBx0_1.setActionCommand("1");
@@ -315,6 +305,27 @@ public class View extends JPanel implements DocumentListener {
 		chkBx19_1.setActionCommand("1");
 		chkBx19_2.setActionCommand("2");
 		chkBx19_3.setActionCommand("3");
+
+		btnGrp0 = new ButtonGroupExtended();
+		btnGrp1 = new ButtonGroupExtended();
+		btnGrp2 = new ButtonGroupExtended();
+		btnGrp3 = new ButtonGroupExtended();
+		btnGrp4 = new ButtonGroupExtended();
+		btnGrp5 = new ButtonGroupExtended();
+		btnGrp6 = new ButtonGroupExtended();
+		btnGrp7 = new ButtonGroupExtended();
+		btnGrp8 = new ButtonGroupExtended();
+		btnGrp9 = new ButtonGroupExtended();
+		btnGrp10 = new ButtonGroupExtended();
+		btnGrp11 = new ButtonGroupExtended();
+		btnGrp12 = new ButtonGroupExtended();
+		btnGrp13 = new ButtonGroupExtended();
+		btnGrp14 = new ButtonGroupExtended();
+		btnGrp15 = new ButtonGroupExtended();
+		btnGrp16 = new ButtonGroupExtended();
+		btnGrp17 = new ButtonGroupExtended();
+		btnGrp18 = new ButtonGroupExtended();
+		btnGrp19 = new ButtonGroupExtended();
 
 		btnGrp0.add(chkBx0_0);
 		btnGrp0.add(chkBx0_1);
@@ -401,180 +412,44 @@ public class View extends JPanel implements DocumentListener {
 				btnGrp5, btnGrp6, btnGrp7, btnGrp8, btnGrp9, btnGrp10, btnGrp11, btnGrp12, btnGrp13, btnGrp14, btnGrp15,
 				btnGrp16, btnGrp17, btnGrp18, btnGrp19));
 
-		chkBx0_0.setSelected(false);
-		chkBx0_1.setSelected(false);
-		chkBx0_2.setSelected(false);
-		chkBx0_3.setSelected(false);
-		chkBx1_0.setSelected(false);
-		chkBx1_1.setSelected(false);
-		chkBx1_2.setSelected(false);
-		chkBx1_3.setSelected(false);
-		chkBx2_0.setSelected(false);
-		chkBx2_1.setSelected(false);
-		chkBx2_2.setSelected(false);
-		chkBx2_3.setSelected(false);
-		chkBx3_0.setSelected(false);
-		chkBx3_1.setSelected(false);
-		chkBx3_2.setSelected(false);
-		chkBx3_3.setSelected(false);
-		chkBx4_0.setSelected(false);
-		chkBx4_1.setSelected(false);
-		chkBx4_2.setSelected(false);
-		chkBx4_3.setSelected(false);
-		chkBx5_0.setSelected(false);
-		chkBx5_1.setSelected(false);
-		chkBx5_2.setSelected(false);
-		chkBx5_3.setSelected(false);
-		chkBx6_0.setSelected(false);
-		chkBx6_1.setSelected(false);
-		chkBx6_2.setSelected(false);
-		chkBx6_3.setSelected(false);
-		chkBx7_0.setSelected(false);
-		chkBx7_1.setSelected(false);
-		chkBx7_2.setSelected(false);
-		chkBx7_3.setSelected(false);
-		chkBx8_0.setSelected(false);
-		chkBx8_1.setSelected(false);
-		chkBx8_2.setSelected(false);
-		chkBx8_3.setSelected(false);
-		chkBx9_0.setSelected(false);
-		chkBx9_1.setSelected(false);
-		chkBx9_2.setSelected(false);
-		chkBx9_3.setSelected(false);
-		chkBx10_0.setSelected(false);
-		chkBx10_1.setSelected(false);
-		chkBx10_2.setSelected(false);
-		chkBx10_3.setSelected(false);
-		chkBx11_0.setSelected(false);
-		chkBx11_1.setSelected(false);
-		chkBx11_2.setSelected(false);
-		chkBx11_3.setSelected(false);
-		chkBx12_0.setSelected(false);
-		chkBx12_1.setSelected(false);
-		chkBx12_2.setSelected(false);
-		chkBx12_3.setSelected(false);
-		chkBx13_0.setSelected(false);
-		chkBx13_1.setSelected(false);
-		chkBx13_2.setSelected(false);
-		chkBx13_3.setSelected(false);
-		chkBx14_0.setSelected(false);
-		chkBx14_1.setSelected(false);
-		chkBx14_2.setSelected(false);
-		chkBx14_3.setSelected(false);
-		chkBx15_0.setSelected(false);
-		chkBx15_1.setSelected(false);
-		chkBx15_2.setSelected(false);
-		chkBx15_3.setSelected(false);
-		chkBx16_0.setSelected(false);
-		chkBx16_1.setSelected(false);
-		chkBx16_2.setSelected(false);
-		chkBx16_3.setSelected(false);
-		chkBx17_0.setSelected(false);
-		chkBx17_1.setSelected(false);
-		chkBx17_2.setSelected(false);
-		chkBx17_3.setSelected(false);
-		chkBx18_0.setSelected(false);
-		chkBx18_1.setSelected(false);
-		chkBx18_2.setSelected(false);
-		chkBx18_3.setSelected(false);
-		chkBx19_0.setSelected(false);
-		chkBx19_1.setSelected(false);
-		chkBx19_2.setSelected(false);
-		chkBx19_3.setSelected(false);
+		btnGrpExtList.stream().forEach((g) -> {
+			g.getButtons().stream().forEach((b) -> {
+				b.setSelected(false);
+			});
+		});
 
-		txtFld0 = new javax.swing.JTextField();
-		txtFld1 = new javax.swing.JTextField();
-		txtFld2 = new javax.swing.JTextField();
-		txtFld3 = new javax.swing.JTextField();
-		txtFld4 = new javax.swing.JTextField();
-		txtFld5 = new javax.swing.JTextField();
-		txtFld6 = new javax.swing.JTextField();
-		txtFld7 = new javax.swing.JTextField();
-		txtFld8 = new javax.swing.JTextField();
-		txtFld9 = new javax.swing.JTextField();
-		txtFld10 = new javax.swing.JTextField();
-		txtFld11 = new javax.swing.JTextField();
-		txtFld12 = new javax.swing.JTextField();
-		txtFld13 = new javax.swing.JTextField();
-		txtFld14 = new javax.swing.JTextField();
-		txtFld15 = new javax.swing.JTextField();
-		txtFld16 = new javax.swing.JTextField();
-		txtFld17 = new javax.swing.JTextField();
-		txtFld18 = new javax.swing.JTextField();
-		txtFld19 = new javax.swing.JTextField();
-		txtFldTestCode = new javax.swing.JTextField();
-		txtFldSum = new javax.swing.JTextField();
+		txtFld0 = new JTextField();
+		txtFld1 = new JTextField();
+		txtFld2 = new JTextField();
+		txtFld3 = new JTextField();
+		txtFld4 = new JTextField();
+		txtFld5 = new JTextField();
+		txtFld6 = new JTextField();
+		txtFld7 = new JTextField();
+		txtFld8 = new JTextField();
+		txtFld9 = new JTextField();
+		txtFld10 = new JTextField();
+		txtFld11 = new JTextField();
+		txtFld12 = new JTextField();
+		txtFld13 = new JTextField();
+		txtFld14 = new JTextField();
+		txtFld15 = new JTextField();
+		txtFld16 = new JTextField();
+		txtFld17 = new JTextField();
+		txtFld18 = new JTextField();
+		txtFld19 = new JTextField();
+		txtFldTestCode = new JTextField();
+		txtFldSum = new JTextField();
 
-		textFieldGroup = new ArrayList<JTextField>(Arrays.asList(txtFld0, txtFld1, txtFld2, txtFld3, txtFld4, txtFld5,
+		txtFldList = new ArrayList<JTextField>(Arrays.asList(txtFld0, txtFld1, txtFld2, txtFld3, txtFld4, txtFld5,
 				txtFld6, txtFld7, txtFld8, txtFld9, txtFld10, txtFld11, txtFld12, txtFld13, txtFld14, txtFld15,
 				txtFld16, txtFld17, txtFld18, txtFld19));
 
-		lbl0.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl1.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl2.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl3.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl4.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl5.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl6.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl7.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl8.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl9.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl10.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl11.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl12.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl13.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl14.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl15.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl16.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl17.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl18.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lbl19.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lblA.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lblB.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lblC.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		lblD.setFont(new Font("Monospaced", Font.PLAIN, 11));
-
-		txtFld0.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld1.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld2.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld3.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld4.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld5.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld6.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld7.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld8.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld9.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld10.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld11.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld12.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld13.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld14.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld15.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld16.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld17.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld18.setFont(new Font("Monospaced", Font.PLAIN, 11));
-		txtFld19.setFont(new Font("Monospaced", Font.PLAIN, 11));
-
-		txtFld0.setEnabled(false);
-		txtFld1.setEnabled(false);
-		txtFld2.setEnabled(false);
-		txtFld3.setEnabled(false);
-		txtFld4.setEnabled(false);
-		txtFld5.setEnabled(false);
-		txtFld6.setEnabled(false);
-		txtFld7.setEnabled(false);
-		txtFld8.setEnabled(false);
-		txtFld9.setEnabled(false);
-		txtFld10.setEnabled(false);
-		txtFld11.setEnabled(false);
-		txtFld12.setEnabled(false);
-		txtFld13.setEnabled(false);
-		txtFld14.setEnabled(false);
-		txtFld15.setEnabled(false);
-		txtFld16.setEnabled(false);
-		txtFld17.setEnabled(false);
-		txtFld18.setEnabled(false);
-		txtFld19.setEnabled(false);
+		txtFldList.stream().forEach((t) -> {
+			// TODO add app.properties
+			t.setFont(new Font("Monospaced", Font.PLAIN, 11));
+			t.setEnabled(false);
+		});
 
 		txtFldSum.setBounds(10, 30, 30, 30);
 		txtFldTestCode.setBounds(40, 30, 500, 30);
@@ -591,7 +466,7 @@ public class View extends JPanel implements DocumentListener {
 		lblSex.setBounds(80, 65, 30, 30);
 		lblSex.setText("Φύλο");
 		cmbSex.addItem("Αρσενικό");
-		cmbSex.addItem("Θυληκό");
+		cmbSex.addItem("Θηλυκό");
 		cmbSex.setBounds(110, 65, 90, 30);
 
 		lblEdu.setBounds(205, 65, 75, 30);
@@ -659,6 +534,7 @@ public class View extends JPanel implements DocumentListener {
 		snap4 = 460;
 		snap5 = 490;
 
+		// TODO question app.properties
 		lbl0.setBounds(x, y, lblW, lblH);
 		lbl0.setText("<html>Ενοχλούμουν από πράγματα που συνήθως δεν ενοχλούμαι<html>");
 		chkBx0_0.setBounds(x + snap1, y, chBoxW, chBoxH);
@@ -968,9 +844,9 @@ public class View extends JPanel implements DocumentListener {
 		randomMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Random rnd = new Random();
-				for (ButtonGroupExtended bge : btnGrpExtList) {
-					bge.getButtons().get(rnd.nextInt(4)).doClick();
-				}
+				btnGrpExtList.stream().forEach((b)->{
+					b.getButtons().get(rnd.nextInt(4)).doClick();
+				});
 			}
 		});
 
@@ -1093,27 +969,10 @@ public class View extends JPanel implements DocumentListener {
 			}
 		});
 
-		txtFld0.getDocument().addDocumentListener(this);
-		txtFld1.getDocument().addDocumentListener(this);
-		txtFld2.getDocument().addDocumentListener(this);
-		txtFld3.getDocument().addDocumentListener(this);
-		txtFld4.getDocument().addDocumentListener(this);
-		txtFld5.getDocument().addDocumentListener(this);
-		txtFld6.getDocument().addDocumentListener(this);
-		txtFld7.getDocument().addDocumentListener(this);
-		txtFld8.getDocument().addDocumentListener(this);
-		txtFld9.getDocument().addDocumentListener(this);
-		txtFld10.getDocument().addDocumentListener(this);
-		txtFld11.getDocument().addDocumentListener(this);
-		txtFld12.getDocument().addDocumentListener(this);
-		txtFld13.getDocument().addDocumentListener(this);
-		txtFld14.getDocument().addDocumentListener(this);
-		txtFld15.getDocument().addDocumentListener(this);
-		txtFld16.getDocument().addDocumentListener(this);
-		txtFld17.getDocument().addDocumentListener(this);
-		txtFld18.getDocument().addDocumentListener(this);
-		txtFld19.getDocument().addDocumentListener(this);
-
+		txtFldList.stream().forEach((t) -> {
+			t.getDocument().addDocumentListener(this);
+			t.setVisible(false);
+		});
 	}
 
 	private void calculate() {
@@ -1155,6 +1014,10 @@ public class View extends JPanel implements DocumentListener {
 				&& btnGrp18.getSelection() != null && btnGrp19.getSelection() != null
 
 		) {
+
+			txtFldList.stream().forEach((t) -> {
+				t.setVisible(true);
+			});
 			txtFldSum.setVisible(true);
 			txtFldTestCode.setVisible(true);
 			lblAge.setVisible(true);
@@ -1217,13 +1080,9 @@ public class View extends JPanel implements DocumentListener {
 
 	private void calcFinalValueAndWriteToFile() {
 		xlc.createNewRow();
-		for (ButtonGroupExtended bge : btnGrpExtList) {
-			for (int i = 0; i <= 3; i++) {
-				if (bge.getButtons().get(i).isSelected()) {
-					xlc.createAndWriteToCell(bge.getButtons().get(i).getActionCommand());
-				}
-			}
-		}
+		btnGrpExtList.stream().forEach(bge -> {
+			xlc.createAndWriteToCell(bge.getSelection().getActionCommand());
+		});
 		xlc.createAndWriteToCell(txtFldSum.getText());
 		xlc.createAndWriteToCell(txtFldTestCode.getText());
 		xlc.createAndWriteToCell(cmbAge.getSelectedItem().toString());
